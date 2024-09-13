@@ -432,6 +432,7 @@
   pointer-events: none;
   transition: opacity 400ms ease-in-out,  transform 400ms ease-in-out;;
   z-index: 100;
+  backdrop-filter: blur(40px);
 }
 
 .modal {
@@ -557,8 +558,8 @@ button {
   font-family: Arial, sans-serif;
   border: none;
   border-radius: 5px;
-  background-color: #007bff; /* Primary color */
-  color: white;
+  background-color: #ffffff; /* Primary color */
+  color: rgb(0, 0, 0);
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
   outline: none; /* Remove default focus outline */
@@ -566,7 +567,7 @@ button {
 
 /* Hover state */
 .statebutton:hover {
-  background-color: #0056b3; /* Darker shade for hover */
+  background-color: #d2d2d2; /* Darker shade for hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -578,14 +579,17 @@ button {
 
 /* Focus state (by tab) */
 .statebutton:focus {
-  outline: 2px solid #0056b3; /* Blue outline for accessibility */
+  outline: 2px solid #bfbfbf; /* Blue outline for accessibility */
   outline-offset: 2px;
 }
 
 /* Focus state (by mouse) */
 .statebutton:focus-visible {
-  outline: 2px solid #0056b3;
-  outline-offset: 2px;
+    
+  background-color: #a8a8a8; /* Darker shade for hover */
+  /*outline: 2px solid #454545;
+  outline-offset: 2px;*
+
 }
 
 /* Disabled state */
@@ -622,6 +626,7 @@ button {
         <div class="modal-header flex-row-between">
           <h2>Modal Title</h2>
           <button id="closeModal" class="close-icon statebutton" ></button>
+          <button id="closeModal" disabled class="close-icon statebutton" ></button>
         </div>
         
         <div class="modal-content">
