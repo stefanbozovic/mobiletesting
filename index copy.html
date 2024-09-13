@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .play-button {
+            display: flex;
+            height: 60px;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 24px;
+            position: relative;
+            background-color: rgba(242, 242, 242, 0.75);
+
+            width: 60px;
+            min-width: 60px;
+            border-radius: 50%;
+
+            box-shadow: 0px 4px 24px 0px var(--color-drop-shadow-level3, rgba(0, 0, 0, 0.25));
+            backdrop-filter: blur(8px);
+            box-sizing: border-box;
+
+            transition: 200ms;
+
+        }
+
+
+        .play-button .vector {
+            position: relative;
+            width: 11.53px;
+            height: 13.91px;
+            margin-top: -0.92px;
+            margin-bottom: -1px;
+            margin-right: -3.53px;
+        }
+
+        .play-button:hover {
+            cursor: pointer;
+            box-shadow: 0px 4px 24px 0px var(--color-drop-shadow-level3, rgba(0, 0, 0, 0.35));
+        }
+
+        .parent {
+            width: 108px;
+            height: 192px;
+            background: gray;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .parent-relative {
+            width: 108px;
+            height: 192px;
+            background: gray;
+            position: relative;
+        }
+
+        .above-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+        }
+.box{
+    box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="parent box">
+
+        <div class="play-button "><img class="vector" src="vector-1.svg" /></div>
+    </div>
+    <br>
+    <div class="parent-relative">
+
+        <div class="play-button above-center"><img class="vector" src="vector-1.svg" /></div>
+    </div>
+</body>
+
+</html>

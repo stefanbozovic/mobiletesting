@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Default styles (mobile-first approach) */
+        .rh1 {
+            font-size: 24px;
+            line-height: 30px;
+            font-family: 'A1 Serif';
+        }
+
+        .rh2 {
+            font-size: 20px;
+            line-height: 26px;
+            font-family: 'A1 Serif';
+        }
+
+        .rh3 {
+            font-size: 18px;
+            line-height: 24px;
+            font-family: 'A1 Serif';
+        }
+
+        .rh4 {
+            font-size: 16px;
+            line-height: 22px;
+            font-family: 'A1 Serif';
+        }
+
+        .rp1 {
+            font-size: 12px;
+            line-height: 18px;
+            font-family: 'A1 Sans';
+        }
+
+        .rp2 {
+            font-size: 12px;
+            line-height: 18px;
+            font-family: 'A1 Sans';
+        }
+
+        .rp3 {
+            font-size: 12px;
+            line-height: 16px;
+            font-family: 'A1 Sans';
+        }
+
+        .rlink {
+            font-size: 14px;
+            line-height: 18px;
+            font-family: 'A1 Sans';
+        }
+
+        /* Breakpoint 375px */
+        @media (min-width: 375px) {
+            .rh1 {
+                font-size: 32px;
+                line-height: 40px;
+            }
+
+            .rh2 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+
+            .rh3 {
+                font-size: 20px;
+                line-height: 28px;
+            }
+
+            .rh4 {
+                font-size: 18px;
+                line-height: 24px;
+            }
+
+            .rp1 {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .rp2 {
+                font-size: 12px;
+                line-height: 18px;
+            }
+
+            .rp3 {
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            .rlink {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+        /* Breakpoint 690px */
+        @media (min-width: 690px) {
+            .rh1 {
+                font-size: 36px;
+                line-height: 46px;
+            }
+
+            .rh2 {
+                font-size: 30px;
+                line-height: 38px;
+            }
+
+            .rh3 {
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            .rh4 {
+                font-size: 20px;
+                line-height: 28px;
+            }
+
+            .rp1 {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .rp2 {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .rp3 {
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            .rlink {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+        /* Breakpoint 1024px */
+        @media (min-width: 1024px) {
+            .rh1 {
+                font-size: 48px;
+                line-height: 60px;
+            }
+
+            .rh2 {
+                font-size: 32px;
+                line-height: 40px;
+            }
+
+            .rh3 {
+                font-size: 26px;
+                line-height: 32px;
+            }
+
+            .rh4 {
+                font-size: 22px;
+                line-height: 30px;
+            }
+
+            .rp1 {
+                font-size: 16px;
+                line-height: 22px;
+            }
+
+            .rp2 {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .rp3 {
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            .rlink {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+    </style>
+    <style>
+        /* Figma Styles of your File */
+        :root {
+            /* Colors */
+            /* Fonts */
+            /* Effects */
+            --card-sm-box-shadow: 0px 2px 6px 0px rgba(79, 79, 79, 0.08),
+                0px 1px 2px 0px rgba(97, 97, 97, 0.2), 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+            --card-sm-hover-box-shadow: 0px 10px 20px 0px rgba(79, 79, 79, 0.1),
+                0px 1px 2px 0px rgba(97, 97, 97, 0.2), 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+            --card-bg-box-shadow: 0px 0px 0px 1px rgba(126, 14, 14, 0.04),
+                0px 1px 1px -0.5px rgba(69, 42, 42, 0.04),
+                0px 3px 3px -1.5px rgba(70, 42, 42, 0.04),
+                0px 6px 6px -3px rgba(70, 42, 42, 0.04),
+                0px 12px 12px -6px rgba(126, 14, 14, 0.04),
+                0px 24px 24px -12px rgba(126, 14, 14, 0.04);
+        }
+
+
+        .kartica-o-proizvodu,
+        .kartica-o-proizvodu * {
+            box-sizing: border-box;
+        }
+
+        .kartica-o-proizvodu {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex: 1;
+            position: relative;
+            box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+        }
+
+        .sadrzaj-kartice {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex: 1;
+            position: relative;
+        }
+
+        .naziv-proizvoda {
+            color: var(--neutral-grey5, #333333);
+            text-align: left;
+            font-family: "A1Sans-Regular", sans-serif;
+            font-size: var(--typography-p1-font-size, 16px);
+            line-height: 100%;
+            font-weight: 400;
+            position: relative;
+            align-self: stretch;
+            height: 48px;
+            min-height: 48px;
+        }
+
+        .slika {
+            align-self: stretch;
+            flex-shrink: 0;
+            height: 339px;
+            position: relative;
+        }
+
+        .dugme-lupa {
+            position: absolute;
+            inset: 0;
+        }
+
+        .ellipse-9 {
+            background: var(--neutral-white, #ffffff);
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+        }
+
+        .group-124 {
+            width: 30px;
+            height: 30px;
+            position: static;
+        }
+
+        .search {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: -22px;
+            bottom: 8px;
+            transform-origin: 0 0;
+            transform: rotate(0deg) scale(-1, 1);
+            overflow: hidden;
+        }
+
+        .icon {
+            width: 75%;
+            height: 75%;
+            position: absolute;
+            right: 12.5%;
+            left: 12.5%;
+            bottom: 12.5%;
+            top: 12.5%;
+            overflow: visible;
+        }
+
+        .add {
+            width: 65%;
+            height: 65%;
+            position: absolute;
+            right: 5%;
+            left: 30%;
+            bottom: 30%;
+            top: 5%;
+            overflow: visible;
+        }
+
+        .sadrzaj-ispod-slike {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .cena-dugme-kupi {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .cena {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .mesecni-iznos {
+            color: var(--neutral-grey5, #333333);
+            text-align: left;
+            font-family: "A1Sans-Bold", sans-serif;
+            font-size: 24px;
+            line-height: 40px;
+            font-weight: 700;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .rate {
+            color: var(--neutral-grey5, #333333);
+            text-align: left;
+            font-family: "A1Sans-Bold", sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 700;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .dugme-kupi {
+            background: var(--color-button-primary, #eb140a);
+            border-radius: var(--corner-radius, 4px);
+            padding: 14px var(--space-s, 16px) 14px var(--space-s, 16px);
+            display: flex;
+            flex-direction: row;
+            gap: var(--space-xs, 8px);
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .button-text {
+            color: var(--color-on-button-primary, #ffffff);
+            text-align: center;
+            font-family: var(--responsive-link-font-family, "A1Sans-Regular", sans-serif);
+            font-size: var(--responsive-link-font-size, 16px);
+            line-height: var(--responsive-link-line-height, 20px);
+            font-weight: var(--responsive-link-font-weight, 400);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dugme-detaljnije {
+            border-radius: var(--corner-radius, 4px);
+            padding: 10px var(--space-s, 16px) 10px var(--space-s, 16px);
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 158px;
+            position: relative;
+        }
+
+        .button-text2 {
+            color: var(--color-link, #b90a05);
+            text-align: center;
+            font-family: var(--responsive-link-font-family, "A1Sans-Regular", sans-serif);
+            font-size: var(--responsive-link-font-size, 16px);
+            line-height: var(--responsive-link-line-height, 20px);
+            font-weight: var(--responsive-link-font-weight, 400);
+            text-decoration: underline;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <style>
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.1;
+  pointer-events: none;
+  transition: opacity 400ms ease-in-out,  transform 400ms ease-in-out;;
+  z-index: 100;
+}
+
+.modal {
+  max-width: 800px;
+  width: 100%;
+  height: 90vh; /* 90% of the viewport height */
+  max-height: 90vh; /* Ensure it doesn't exceed 90% of the viewport height */
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+  top: 90%;
+  opacity: 0.1;
+  transform: translateY(10%);
+  display: flex;
+  flex-direction: column;
+  transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;;
+  overflow: hidden; /* Ensure the content doesn't overflow outside the modal */
+}
+
+
+
+.modal-header, .modal-footer {
+  padding: 10px; 
+ 
+  backdrop-filter: blur(40px); /* Apply a strong blur to the entire background */
+  position: sticky; /* Sticky header and footer */
+  z-index: 1; /* Make sure header and footer are above the content */
+  transition: backdrop-filter 300ms ease, background-color 300ms ease; /* Transition for blur and background */
+  
+}
+.modal-header {
+  top: 0;
+   background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); /*Transparent gradient */
+}
+.flex-row-between{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-footer {
+  bottom: 0;
+   background: linear-gradient( rgba(255, 255, 255, 0),rgba(255, 255, 255, 1)); /*Transparent gradient */
+}
+
+
+
+
+.modal-content {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 0; /* Content goes beneath the header and footer */
+  margin-top: -40px; /* Adjust this based on the header height if necessary */
+  margin-bottom: -40px; /* Adjust this based on the footer height if necessary */
+  padding-top: 50px; /*40px negative margin plus 10px padding*/
+  padding-bottom: 50px;
+}
+.modal-overlay.show .modal {
+    top: 5vh; /* Center the modal vertically */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-overlay.show  {
+  opacity: 1 ;
+  pointer-events: auto;
+}
+
+.modal-overlay.closing .modal {
+  top: 5vh;
+  opacity: 0;
+  transform: translateY(10%);
+  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;; /* Longer and different animation for close */
+}
+.modal-overlay.closing {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;; /* Longer fade out for closing */
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-link.active {
+  background-color: #ddd;
+}
+
+.accordion-content {
+  display: none;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+.close-icon{
+    background-image: url(Cancel.svg);
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+}
+
+    </style>
+</head>
+
+<body>
+   
+
+    <button id="openModal">Open Modal</button>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <div class="modal-header flex-row-between">
+          <h2>Modal Title</h2>
+          <button id="closeModal" class="close-icon" ></button>
+        </div>
+        
+        <div class="modal-content">
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+            <p>This is content for Accordion 2.</p>
+          
+        
+        </div>
+    
+        <div class="modal-footer">
+          <button class="close-icon" id="closeModal">Close</button>
+        </div>
+      </div>
+    </div>
+    
+      <script>
+        // Modal open/close functionality
+const openModalButton = document.getElementById('openModal');
+const modalOverlay = document.getElementById('modalOverlay');
+const closeModalButton = document.getElementById('closeModal');
+
+openModalButton.addEventListener('click', () => {
+  modalOverlay.classList.add('show');
+  modalOverlay.classList.remove('closing'); // Reset closing state if needed
+});
+
+closeModalButton.addEventListener('click', () => {
+    modalOverlay.classList.add('closing'); // Add closing class
+  setTimeout(() => {
+    modalOverlay.classList.remove('show');
+    modalOverlay.classList.remove('closing'); // Remove closing class after animation
+  }, 500); // Timeout should match the closing animation duration
+});
+
+
+      </script>
+      
+
+      <div class="kartica-o-proizvodu">
+        <div class="sadrzaj-kartice">
+            <div class="naziv-proizvoda rp2">LG OLED65B33LA</div>
+            <div class="slika" style="
+              background: url(Slika12345.png) center;
+              background-size: cover;
+              background-repeat: no-repeat;
+            ">
+                <div class="ellipse-9"></div>
+                <div class="group-124">
+                    <div class="search">
+                        <img class="icon" src="icon0.svg" />
+                        <img class="add" src="add0.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="sadrzaj-ispod-slike">
+                <div class="cena-dugme-kupi">
+                    <div class="cena">
+                        <div class="mesecni-iznos ">3.525 RSD/mes</div>
+                        <div class="rate">na 24 rate</div>
+                    </div>
+                    <div class="dugme-kupi">
+                        <div class="button-text rlink">Kupi</div>
+                    </div>
+                </div>
+                <div class="dugme-detaljnije">
+                    <div class="button-text2 rlink">Detaljnije o proizvodu</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
