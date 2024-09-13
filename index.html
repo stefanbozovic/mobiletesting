@@ -432,7 +432,7 @@
   pointer-events: none;
   transition: opacity 400ms ease-in-out,  transform 400ms ease-in-out;;
   z-index: 100;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(2px);
 }
 
 .modal {
@@ -457,7 +457,7 @@
 
 .modal-header, .modal-footer {
   padding: 10px; 
-  backdrop-filter: blur(2px); /* Apply a strong blur to the entire background */
+  backdrop-filter: blur(20px); /* Apply a strong blur to the entire background */
   position: sticky; /* Sticky header and footer */
   z-index: 1; /* Make sure header and footer are above the content */
   transition: backdrop-filter 300ms ease, background-color 300ms ease; /* Transition for blur and background */
