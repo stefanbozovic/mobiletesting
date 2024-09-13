@@ -476,6 +476,7 @@
 }
 
 .modal-footer {
+    min-height: 40px;
   bottom: 0;
    background: linear-gradient( rgba(255, 255, 255, 0),rgba(255, 255, 255, 1)); /*Transparent gradient */
 }
@@ -547,6 +548,67 @@ button {
     padding: 8px;
 }
 
+
+
+/* Base button style */
+.statebutton {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Primary color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  outline: none; /* Remove default focus outline */
+}
+
+/* Hover state */
+.statebutton:hover {
+  background-color: #0056b3; /* Darker shade for hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active (pressed) state */
+.statebutton:active {
+  background-color: #004494; /* Even darker shade for active */
+  transform: translateY(2px); /* Slight move to mimic press effect */
+}
+
+/* Focus state (by tab) */
+.statebutton:focus {
+  outline: 2px solid #0056b3; /* Blue outline for accessibility */
+  outline-offset: 2px;
+}
+
+/* Focus state (by mouse) */
+.statebutton:focus-visible {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.statebutton:disabled {
+  background-color: #cccccc; /* Light gray for disabled */
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none; /* Remove shadow for disabled */
+}
+
+/* Button with aria-expanded attribute (for dropdowns) */
+.statebutton[aria-expanded="true"] {
+  background-color: #0056b3; /* Change color when expanded */
+}
+
+/* Focus state on touch devices */
+@media (pointer: coarse) {
+  .statebutton:focus {
+    outline: none; /* Remove outline on touch devices */
+    box-shadow: 0 0 0 2px #0056b3; /* Show a shadow instead */
+  }
+}
+
     </style>
 </head>
 
@@ -559,7 +621,7 @@ button {
       <div class="modal">
         <div class="modal-header flex-row-between">
           <h2>Modal Title</h2>
-          <button id="closeModal" class="close-icon" ></button>
+          <button id="closeModal" class="close-icon statebutton" ></button>
         </div>
         
         <div class="modal-content">
