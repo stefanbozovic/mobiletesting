@@ -445,11 +445,11 @@
   border-radius: 10px;
   position: relative;
   top: 90%;
-  opacity: 0.1;
-  transform: translateY(10%);
+  opacity: 0.1; 
+  transform: scale(0.9) translateY(10%); /* Start with scale 0.9 */
   display: flex;
   flex-direction: column;
-  transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;;
+  transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
   overflow: hidden; /* Ensure the content doesn't overflow outside the modal */
 }
 
@@ -457,8 +457,7 @@
 
 .modal-header, .modal-footer {
   padding: 10px; 
- 
-  backdrop-filter: blur(40px); /* Apply a strong blur to the entire background */
+  backdrop-filter: blur(2px); /* Apply a strong blur to the entire background */
   position: sticky; /* Sticky header and footer */
   z-index: 1; /* Make sure header and footer are above the content */
   transition: backdrop-filter 300ms ease, background-color 300ms ease; /* Transition for blur and background */
@@ -499,7 +498,7 @@
 .modal-overlay.show .modal {
     top: 5vh; /* Center the modal vertically */
   opacity: 1;
-  transform: translateY(0);
+  transform: scale(1) translateY(0);
 }
 
 .modal-overlay.show  {
@@ -510,7 +509,7 @@
 .modal-overlay.closing .modal {
   top: 5vh;
   opacity: 0;
-  transform: translateY(10%);
+  transform: scale(0.9) translateY(10%); /* Scale down and move */
   transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;; /* Longer and different animation for close */
 }
 .modal-overlay.closing {
@@ -573,13 +572,13 @@ button {
 
 /* Active (pressed) state */
 .statebutton:active {
-  background-color: #004494; /* Even darker shade for active */
-  transform: translateY(2px); /* Slight move to mimic press effect */
+  background-color: #adadad; /* Even darker shade for active */
+ /* transform: translateY(2px);  Slight move to mimic press effect */
 }
 
 /* Focus state (by tab) */
 .statebutton:focus {
-  outline: 2px solid #bfbfbf; /* Blue outline for accessibility */
+  outline: 2px solid #bfbfbf39; /* Blue outline for accessibility */
   outline-offset: 2px;
 }
 
@@ -626,7 +625,6 @@ button {
         <div class="modal-header flex-row-between">
           <h2>Modal Title</h2>
           <button id="closeModal" class="close-icon statebutton" ></button>
-          <button id="closeModal" disabled class="close-icon statebutton" ></button>
         </div>
         
         <div class="modal-content">
