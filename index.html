@@ -367,120 +367,125 @@
 
     <style>
         .flexdiv {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 94%;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 94%;
+        }
 
-.slider-container {
-    width: 100%;
-    height: 70%;
-}
+        .slider-container {
+            width: 100%;
+            height: 70%;
+        }
 
-.main-image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.main-image-container img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-.main-image {
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; /* Ensure image fits inside the div without cropping */
-  
-}
+        .main-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-}
+        .main-image {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            /* Ensure image fits inside the div without cropping */
 
-.prev-btn {
-  left: 10px;
-}
+        }
 
-.next-btn {
-  right: 10px;
-}
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
 
-.thumbnails {
-  display: flex;
-  justify-content: flex-start;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  white-space: nowrap;
-  margin-top: 10px;
-  padding: 10px;
-  scrollbar-width: none; /* For Firefox */
-}
+        .prev-btn {
+            left: 10px;
+        }
 
-.thumbnails::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
-}
+        .next-btn {
+            right: 10px;
+        }
 
-.thumbnails img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  margin: 0 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.3s;
-}
+        .thumbnails {
+            display: flex;
+            justify-content: flex-start;
+            overflow-x: auto;
+            /* Enables horizontal scrolling */
+            white-space: nowrap;
+            margin-top: 10px;
+            padding: 10px;
+            scrollbar-width: none;
+            /* For Firefox */
+        }
 
-.thumbnails img.active {
-  border: 2px solid #ff0000;
-  opacity: 1;
-}
+        .thumbnails::-webkit-scrollbar {
+            display: none;
+            /* For Chrome, Safari, and Opera */
+        }
 
-.thumbnails img:hover {
-  opacity: 1;
-}
+        .thumbnails img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-image-container img {
-    width: 100%;
-  }
+        .thumbnails img.active {
+            border: 2px solid #EB140A;
+            opacity: 1;
+            box-sizing: border-box;
+        }
 
-  .thumbnails img {
-    width: 50px;
-    height: 50px;
-  }
-}
+        .thumbnails img:hover {
+            opacity: 1;
+        }
 
-@media (max-width: 480px) {
-  .nav-btn {
-    padding: 5px;
-  }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-image-container img {
+                width: 100%;
+            }
 
-  .thumbnails img {
-    width: 40px;
-    height: 40px;
-  }
-}
+            .thumbnails img {
+                width: 50px;
+                height: 50px;
+            }
+        }
 
+        @media (max-width: 480px) {
+            .nav-btn {
+                padding: 5px;
+            }
+
+            .thumbnails img {
+                width: 40px;
+                height: 40px;
+            }
+        }
     </style>
 </head>
 
@@ -497,7 +502,7 @@
                 <h2 class="m-0 rh4">Modal Title</h2>
                 <button id="closeModal" class="close-icon statebutton"></button>
             </div>
-    
+
             <div class="modal-content rp1">
                 <div class="flexdiv">
                     <div class="slider-container">
@@ -506,14 +511,14 @@
                             <div id="main-image" class="main-image"></div>
                             <button class="nav-btn next-btn">&#9654;</button>
                         </div>
-    
+
                         <div class="thumbnails" id="thumbnails">
                             <!-- Dynamically populated thumbnails -->
                         </div>
                     </div>
                 </div>
             </div>
-    
+
             <div class="modal-footer">
             </div>
         </div>
@@ -525,101 +530,101 @@
         const closeModalButton = document.getElementById('closeModal');
         openModalButton.addEventListener('click', () => {
             modalOverlay.classList.add('show');
-            modalOverlay.classList.remove('closing'); 
+            modalOverlay.classList.remove('closing');
         });
         closeModalButton.addEventListener('click', () => {
-            modalOverlay.classList.add('closing'); 
+            modalOverlay.classList.add('closing');
             setTimeout(() => {
                 modalOverlay.classList.remove('show');
-                modalOverlay.classList.remove('closing'); 
+                modalOverlay.classList.remove('closing');
             }, 500);
         });
     </script>
 
     <script>
- // Select main image and thumbnail container
-const mainImageContainer = document.getElementById('main-image');
-const thumbnailsContainer = document.getElementById('thumbnails');
+        // Select main image and thumbnail container
+        const mainImageContainer = document.getElementById('main-image');
+        const thumbnailsContainer = document.getElementById('thumbnails');
 
-// Assuming you dynamically pull image paths, for example:
-const imageArray = [
-    '01.png',
-    '02.png',
-    '03.png',
-    '04.png',
-    '05.png',
-    '06.png',
-    '07.png',
-    '08.png',
-    '02.png',
-    '03.png',
-    '04.png',
-    '05.png',
-    '06.png',
-    '07.png',
-    '08.png',
-    '02.png',
-    '03.png',
-    '04.png',
-    '05.png',
-    '06.png',
-    '07.png',
-    '08.png',
-    '02.png',
-    '03.png',
-    '04.png',
-    '05.png',
-    '06.png',
-    '07.png',
-    '08.png',
-  // Add as many images as needed
-];
+        // Assuming you dynamically pull image paths, for example:
+        const imageArray = [
+            '01.png',
+            '02.png',
+            '03.png',
+            '04.png',
+            '05.png',
+            '06.png',
+            '07.png',
+            '08.png',
+            '02.png',
+            '03.png',
+            '04.png',
+            '05.png',
+            '06.png',
+            '07.png',
+            '08.png',
+            '02.png',
+            '03.png',
+            '04.png',
+            '05.png',
+            '06.png',
+            '07.png',
+            '08.png',
+            '02.png',
+            '03.png',
+            '04.png',
+            '05.png',
+            '06.png',
+            '07.png',
+            '08.png',
+            // Add as many images as needed
+        ];
 
-// Populate thumbnails dynamically
-imageArray.forEach((imgSrc, index) => {
-  const img = document.createElement('img');
-  img.src = imgSrc;
-  img.classList.add('thumbnail');
-  img.setAttribute('data-index', index);
-  thumbnailsContainer.appendChild(img);
-});
+        // Populate thumbnails dynamically
+        imageArray.forEach((imgSrc, index) => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.classList.add('thumbnail');
+            img.setAttribute('data-index', index);
+            thumbnailsContainer.appendChild(img);
+        });
 
-// Set the initial main image
-let currentIndex = 0;
-mainImageContainer.style.backgroundImage = `url(${imageArray[currentIndex]})`;
-document.querySelectorAll('.thumbnail')[currentIndex].classList.add('active');
+        // Set the initial main image
+        let currentIndex = 0;
+        mainImageContainer.style.backgroundImage = `url(${imageArray[currentIndex]})`;
+        document.querySelectorAll('.thumbnail')[currentIndex].classList.add('active');
 
-// Function to set main image
-function setMainImage(index) {
-  mainImageContainer.style.backgroundImage = `url(${imageArray[index]})`;
-  document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-  const activeThumbnail = document.querySelectorAll('.thumbnail')[index];
-  activeThumbnail.classList.add('active');
-  activeThumbnail.scrollIntoView({
-    behavior: 'smooth',
-    block: 'nearest',
-    inline: 'center'
-  });
-}
+        // Function to set main image
+        function setMainImage(index) {
+            mainImageContainer.style.backgroundImage = `url(${imageArray[index]})`;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            const activeThumbnail = document.querySelectorAll('.thumbnail')[index];
+            activeThumbnail.classList.add('active');
+            activeThumbnail.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+        }
 
-// Add click event to thumbnails
-thumbnailsContainer.addEventListener('click', function(e) {
-  if (e.target.classList.contains('thumbnail')) {
-    currentIndex = parseInt(e.target.getAttribute('data-index'));
-    setMainImage(currentIndex);
-  }
-});
+        // Add click event to thumbnails
+        thumbnailsContainer.addEventListener('click', function (e) {
+            if (e.target.classList.contains('thumbnail')) {
+                currentIndex = parseInt(e.target.getAttribute('data-index'));
+                setMainImage(currentIndex);
+            }
+        });
 
-// Next and Prev button functionality
-document.querySelector('.next-btn').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % imageArray.length;
-  setMainImage(currentIndex);
-});
+        // Next and Prev button functionality
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % imageArray.length;
+            setMainImage(currentIndex);
+        });
 
-document.querySelector('.prev-btn').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-  setMainImage(currentIndex);
-});
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
+            setMainImage(currentIndex);
+        });
 
 
     </script>
