@@ -636,9 +636,15 @@ document.querySelectorAll('.thumbnail')[currentIndex].classList.add('active');
 
 // Function to set main image
 function setMainImage(index) {
-  mainImage.src = imageArray[index];
+    mainImage.src = imageArray[index];
   document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-  document.querySelectorAll('.thumbnail')[index].classList.add('active');
+  const activeThumbnail = document.querySelectorAll('.thumbnail')[index];
+  activeThumbnail.classList.add('active');
+  activeThumbnail.scrollIntoView({
+    behavior: 'smooth',
+    block: 'nearest',
+    inline: 'center'
+  });
 }
 
 // Add click event to thumbnails
