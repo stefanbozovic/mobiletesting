@@ -476,19 +476,12 @@
     <div class="slider-container">
         <div class="main-image-container">
           <button class="nav-btn prev-btn">&#9664;</button>
-          <img id="main-image" src="01.png" alt="Product Image">
+          <img id="main-image" src="" alt="Product Image">
           <button class="nav-btn next-btn">&#9654;</button>
         </div>
     
-        <div class="thumbnails">
-          <img src="01.png" class="thumbnail active" data-index="0">
-          <img src="02.png" class="thumbnail" data-index="1">
-          <img src="03.png" class="thumbnail" data-index="2">
-          <img src="04.png" class="thumbnail" data-index="3">
-          <img src="05.png" class="thumbnail" data-index="4">
-          <img src="06.png" class="thumbnail" data-index="5">
-          <img src="07.png" class="thumbnail" data-index="6">
-          <img src="08.png" class="thumbnail" data-index="7">
+        <div class="thumbnails" id="thumbnails">
+          <!-- Dynamically populated thumbnails -->
         </div>
       </div>
 </div>
@@ -581,50 +574,58 @@
     </script>
 
     <script>
-        // Image Array
-const images = [
-  '01.png',
-  '02.png',
-  '03.png',
-  '04.png',
-  '05.png',
-  '06.png',
-  '07.png',
-  '08.png',
-  '09.png'
+ // Select main image and thumbnail container
+const mainImage = document.getElementById('main-image');
+const thumbnailsContainer = document.getElementById('thumbnails');
+
+// Assuming you dynamically pull image paths, for example:
+const imageArray = [
+  'path/to/image1.jpg',
+  'path/to/image2.jpg',
+  'path/to/image3.jpg',
+  // Add as many images as needed
 ];
 
-let currentIndex = 0;
+// Populate thumbnails dynamically
+imageArray.forEach((imgSrc, index) => {
+  const img = document.createElement('img');
+  img.src = imgSrc;
+  img.classList.add('thumbnail');
+  img.setAttribute('data-index', index);
+  thumbnailsContainer.appendChild(img);
+});
 
-const mainImage = document.getElementById('main-image');
-const thumbnails = document.querySelectorAll('.thumbnail');
+// Set the initial main image
+let currentIndex = 0;
+mainImage.src = imageArray[currentIndex];
+document.querySelectorAll('.thumbnail')[currentIndex].classList.add('active');
 
 // Function to set main image
 function setMainImage(index) {
-  mainImage.src = images[index];
-  thumbnails.forEach(thumb => thumb.classList.remove('active'));
-  thumbnails[index].classList.add('active');
+  mainImage.src = imageArray[index];
+  document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+  document.querySelectorAll('.thumbnail')[index].classList.add('active');
 }
 
 // Add click event to thumbnails
-thumbnails.forEach(thumbnail => {
-  thumbnail.addEventListener('click', function() {
-    const index = parseInt(this.getAttribute('data-index'));
-    currentIndex = index;
-    setMainImage(index);
-  });
+thumbnailsContainer.addEventListener('click', function(e) {
+  if (e.target.classList.contains('thumbnail')) {
+    currentIndex = parseInt(e.target.getAttribute('data-index'));
+    setMainImage(currentIndex);
+  }
 });
 
 // Next and Prev button functionality
 document.querySelector('.next-btn').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
+  currentIndex = (currentIndex + 1) % imageArray.length;
   setMainImage(currentIndex);
 });
 
 document.querySelector('.prev-btn').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
   setMainImage(currentIndex);
 });
+
 
     </script>
 </body>
