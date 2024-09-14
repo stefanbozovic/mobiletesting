@@ -457,16 +457,17 @@
 
 .modal-header, .modal-footer {
   padding: 10px; 
-  backdrop-filter: blur(20px); /* Apply a strong blur to the entire background */
   position: sticky; /* Sticky header and footer */
   z-index: 1; /* Make sure header and footer are above the content */
   transition: backdrop-filter 300ms ease, background-color 300ms ease; /* Transition for blur and background */
   
 }
+
 .modal-header {
   top: 0;
    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); /*Transparent gradient */
 }
+
 .flex-row-between{
     display: flex;
     flex-wrap: nowrap;
@@ -477,8 +478,8 @@
 
 .modal-footer {
     min-height: 40px;
-  bottom: 0;
-   background: linear-gradient( rgba(255, 255, 255, 0),rgba(255, 255, 255, 1)); /*Transparent gradient */
+    bottom: 0;
+    background: linear-gradient( rgba(255, 255, 255, 0),rgba(255, 255, 255, 1)); /*Transparent gradient */
 }
 
 
