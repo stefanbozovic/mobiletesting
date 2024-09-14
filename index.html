@@ -421,264 +421,297 @@
     </style>
 
     <style>
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0.1;
-  pointer-events: none;
-  transition: opacity 400ms ease-in-out,  transform 400ms ease-in-out;;
-  z-index: 100;
-  backdrop-filter: blur(2px);
-}
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0.1;
+            pointer-events: none;
+            transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+        }
 
-.modal {
-  max-width: 800px;
-  width: 100%;
-  height: 90vh; /* 90% of the viewport height */
-  max-height: 90vh; /* Ensure it doesn't exceed 90% of the viewport height */
-  margin: auto;
-  background: white;
-  border-radius: 10px;
-  position: relative;
-  top: 90%;
-  opacity: 0.1; 
-  transform: scale(0.9) translateY(10%); /* Start with scale 0.9 */
-  display: flex;
-  flex-direction: column;
-  transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
-  overflow: hidden; /* Ensure the content doesn't overflow outside the modal */
-}
-
-
-
-.modal-header, .modal-footer {
-  padding: 10px; 
-  position: sticky; /* Sticky header and footer */
-  z-index: 1; /* Make sure header and footer are above the content */
-  transition: backdrop-filter 300ms ease, background-color 300ms ease; /* Transition for blur and background */
-  
-}
-
-.modal-header {
-  top: 0;
-   background: linear-gradient(rgba(255, 255, 255, 1),rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); /*Transparent gradient */
-   padding: 24px;
-}
-
-.flex-row-between{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.modal-footer {
-    min-height: 40px;
-    bottom: 0;
-    background: linear-gradient( rgba(255, 255, 255, 0),rgba(255, 255, 255, 1),rgba(255, 255, 255, 1)); /*Transparent gradient */
-}
-
-.m-0{
-    margin: 0px;
-}
-
-
-.modal-content {
-  flex-grow: 1;
-  padding: 24px;
-  overflow-y: auto;
-  position: relative;
-  z-index: 0; /* Content goes beneath the header and footer */
-  margin-top: -80px; /* Adjust this based on the header height if necessary */
-  margin-bottom: -80px; /* Adjust this based on the footer height if necessary */
-  padding-top: 20px; /*40px negative margin plus 10px padding*/
-  padding-bottom: 20px;
-}
-.modal-overlay.show .modal {
-    top: 5vh; /* Center the modal vertically */
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-.modal-overlay.show  {
-  opacity: 1 ;
-  pointer-events: auto;
-}
-
-.modal-overlay.closing .modal {
-  top: 5vh;
-  opacity: 0;
-  transform: scale(0.9) translateY(10%); /* Scale down and move */
-  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;; /* Longer and different animation for close */
-}
-.modal-overlay.closing {
-  opacity: 0;
-  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;; /* Longer fade out for closing */
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-.tab-link.active {
-  background-color: #ddd;
-}
-
-.accordion-content {
-  display: none;
-}
-
-.accordion-content.active {
-  display: block;
-}
-
-button {
-  cursor: pointer;
-}
-.close-icon{
-    background-image: url(Cancel.svg);
-    background-position: center;
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-}
+        .modal {
+            max-width: 800px;
+            width: 100%;
+            height: 90vh;
+            /* 90% of the viewport height */
+            max-height: 90vh;
+            /* Ensure it doesn't exceed 90% of the viewport height */
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            position: relative;
+            top: 90%;
+            opacity: 0.1;
+            transform: scale(0.9) translateY(10%);
+            /* Start with scale 0.9 */
+            display: flex;
+            flex-direction: column;
+            transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+            overflow: hidden;
+            /* Ensure the content doesn't overflow outside the modal */
+        }
 
 
 
-/* Base button style */
-.statebutton {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #ffffff00; /* Primary color */
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-  outline: none; /* Remove default focus outline */
-}
+        .modal-header,
+        .modal-footer {
+            padding: 10px;
+            position: sticky;
+            /* Sticky header and footer */
+            z-index: 1;
+            /* Make sure header and footer are above the content */
+            transition: backdrop-filter 300ms ease, background-color 300ms ease;
+            /* Transition for blur and background */
 
-/* Hover state */
-.statebutton:hover {
-  background-color: #e1e1e1; /* Darker shade for hover */
-}
+        }
 
-/* Active (pressed) state */
-.statebutton:active {
-  background-color: #c4c4c4; /* Even darker shade for active */
-}
+        .modal-header {
+            top: 0;
+            background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            /*Transparent gradient */
+            padding: 24px;
+        }
 
-/* Focus state (by tab) */
-.statebutton:focus {
- /* outline: 2px solid #bfbfbf39;  Blue outline for accessibility */
-/*  outline-offset: 2px;*/
-}
+        .flex-row-between {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-/* Focus state (by mouse) */
-.statebutton:focus-visible {
-    
-  background-color: #a8a8a8; /* Darker shade for hover */
-  /*outline: 2px solid #454545;
-  outline-offset: 2px;*
+        .modal-footer {
+            min-height: 40px;
+            bottom: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+            /*Transparent gradient */
+        }
 
-}
+        .m-0 {
+            margin: 0px;
+        }
 
-/* Disabled state */
-.statebutton:disabled {
-  background-color: #cccccc; /* Light gray for disabled */
-  color: #666666;
-  cursor: not-allowed;
-  box-shadow: none; /* Remove shadow for disabled */
-}
 
-/* Button with aria-expanded attribute (for dropdowns) */
-.statebutton[aria-expanded="true"] {
-  background-color: #0056b3; /* Change color when expanded */
-}
+        .modal-content {
+            flex-grow: 1;
+            padding: 24px;
+            overflow-y: auto;
+            position: relative;
+            z-index: 0;
+            /* Content goes beneath the header and footer */
+            margin-top: -80px;
+            /* Adjust this based on the header height if necessary */
+            margin-bottom: -80px;
+            /* Adjust this based on the footer height if necessary */
+            padding-top: 20px;
+            /*40px negative margin plus 10px padding*/
+            padding-bottom: 20px;
+        }
 
-/* Focus state on touch devices */
-@media (pointer: coarse) {
-  .statebutton:focus {
-    outline: none; /* Remove outline on touch devices */
-    box-shadow: 0 0 0 2px #0056b3; /* Show a shadow instead */
-  }
-}
+        .modal-overlay.show .modal {
+            top: 5vh;
+            /* Center the modal vertically */
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
 
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-overlay.closing .modal {
+            top: 5vh;
+            opacity: 0;
+            transform: scale(0.9) translateY(10%);
+            /* Scale down and move */
+            transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+            ;
+            /* Longer and different animation for close */
+        }
+
+        .modal-overlay.closing {
+            opacity: 0;
+            transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+            ;
+            /* Longer fade out for closing */
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-link.active {
+            background-color: #ddd;
+        }
+
+        .accordion-content {
+            display: none;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .close-icon {
+            background-image: url(Cancel.svg);
+            background-position: center;
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+        }
+
+
+
+        /* Base button style */
+        .statebutton {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffffff00;
+            /* Primary color */
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            outline: none;
+            /* Remove default focus outline */
+        }
+
+        /* Hover state */
+        .statebutton:hover {
+            background-color: #e1e1e1;
+            /* Darker shade for hover */
+        }
+
+        /* Active (pressed) state */
+        .statebutton:active {
+            background-color: #c4c4c4;
+            /* Even darker shade for active */
+        }
+
+        /* Focus state (by tab) */
+        .statebutton:focus {
+            /* outline: 2px solid #bfbfbf39;  Blue outline for accessibility */
+            /*  outline-offset: 2px;*/
+        }
+
+        /* Focus state (by mouse) */
+        .statebutton:focus-visible {
+
+            background-color: #a8a8a8;
+
+            /* Darker shade for hover */
+            /*outline: 2px solid #454545;
+  outline-offset: 2px;*/
+
+        }
+
+        /* Disabled state */
+        .statebutton:disabled {
+            background-color: #cccccc;
+            /* Light gray for disabled */
+            color: #666666;
+            cursor: not-allowed;
+            box-shadow: none;
+            /* Remove shadow for disabled */
+        }
+
+        /* Button with aria-expanded attribute (for dropdowns) */
+        .statebutton[aria-expanded="true"] {
+            background-color: #0056b3;
+            /* Change color when expanded */
+        }
+
+        /* Focus state on touch devices */
+        @media (pointer: coarse) {
+            .statebutton:focus {
+                outline: none;
+                /* Remove outline on touch devices */
+                box-shadow: 0 0 0 2px #0056b3;
+                /* Show a shadow instead */
+            }
+        }
     </style>
 </head>
 
 <body>
-   
+
 
     <button id="openModal">Open Modal</button>
 
     <div class="modal-overlay" id="modalOverlay">
-      <div class="modal">
-        <div class="modal-header flex-row-between">
-          <h2 class="m-0">Modal Title</h2>
-          <button id="closeModal" class="close-icon statebutton" ></button>
+        <div class="modal">
+            <div class="modal-header flex-row-between">
+                <h2 class="m-0">Modal Title</h2>
+                <button id="closeModal" class="close-icon statebutton"></button>
+            </div>
+
+            <div class="modal-content">
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+                <p>This is content for Accordion 2.</p>
+
+
+            </div>
+
+            <div class="modal-footer">
+            </div>
         </div>
-        
-        <div class="modal-content">
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-            <p>This is content for Accordion 2.</p>
-          
-        
-        </div>
-    
-        <div class="modal-footer">
-        </div>
-      </div>
     </div>
-    
-      <script>
+
+    <script>
         // Modal open/close functionality
-const openModalButton = document.getElementById('openModal');
-const modalOverlay = document.getElementById('modalOverlay');
-const closeModalButton = document.getElementById('closeModal');
+        const openModalButton = document.getElementById('openModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const closeModalButton = document.getElementById('closeModal');
 
-openModalButton.addEventListener('click', () => {
-  modalOverlay.classList.add('show');
-  modalOverlay.classList.remove('closing'); // Reset closing state if needed
-});
+        openModalButton.addEventListener('click', () => {
+            modalOverlay.classList.add('show');
+            modalOverlay.classList.remove('closing'); // Reset closing state if needed
+        });
 
-closeModalButton.addEventListener('click', () => {
-    modalOverlay.classList.add('closing'); // Add closing class
-  setTimeout(() => {
-    modalOverlay.classList.remove('show');
-    modalOverlay.classList.remove('closing'); // Remove closing class after animation
-  }, 500); // Timeout should match the closing animation duration
-});
+        closeModalButton.addEventListener('click', () => {
+            modalOverlay.classList.add('closing'); // Add closing class
+            setTimeout(() => {
+                modalOverlay.classList.remove('show');
+                modalOverlay.classList.remove('closing'); // Remove closing class after animation
+            }, 500); // Timeout should match the closing animation duration
+        });
 
 
-      </script>
-      
+    </script>
 
-      <div class="kartica-o-proizvodu">
+
+    <div class="kartica-o-proizvodu">
         <div class="sadrzaj-kartice">
             <div class="naziv-proizvoda rp2">LG OLED65B33LA</div>
             <div class="slika" style="
