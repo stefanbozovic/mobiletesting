@@ -186,6 +186,239 @@
         }
     </style>
 
+    <style>
+        /* Figma Styles of your File */
+        :root {
+            /* Colors */
+            /* Fonts */
+            /* Effects */
+            --card-sm-box-shadow: 0px 2px 6px 0px rgba(79, 79, 79, 0.08),
+                0px 1px 2px 0px rgba(97, 97, 97, 0.2), 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+            --card-sm-hover-box-shadow: 0px 10px 20px 0px rgba(79, 79, 79, 0.1),
+                0px 1px 2px 0px rgba(97, 97, 97, 0.2), 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+            --card-bg-box-shadow: 0px 0px 0px 1px rgba(126, 14, 14, 0.04),
+                0px 1px 1px -0.5px rgba(69, 42, 42, 0.04),
+                0px 3px 3px -1.5px rgba(70, 42, 42, 0.04),
+                0px 6px 6px -3px rgba(70, 42, 42, 0.04),
+                0px 12px 12px -6px rgba(126, 14, 14, 0.04),
+                0px 24px 24px -12px rgba(126, 14, 14, 0.04);
+        }
+
+        .kartica-o-proizvodu,
+        .kartica-o-proizvodu * {
+            box-sizing: border-box;
+        }
+
+        .kartica-o-proizvodu {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex: 1;
+            position: relative;
+            box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+        }
+
+        .sadrzaj-kartice {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex: 1;
+            position: relative;
+        }
+
+        .naziv-proizvoda {
+            color: var(--neutral-grey5, #333333);
+            text-align: left;
+            font-family: "A1Sans-Regular", sans-serif;
+            font-size: var(--typography-p1-font-size, 16px);
+            line-height: 100%;
+            font-weight: 400;
+            position: relative;
+            align-self: stretch;
+            height: 48px;
+            min-height: 48px;
+        }
+
+        .slika {
+            align-self: stretch;
+            flex-shrink: 0;
+            height: 339px;
+            position: relative;
+        }
+
+        .dugme-lupa {
+            position: absolute;
+            inset: 0;
+        }
+
+        .ellipse-9 {
+            background: var(--neutral-white, #ffffff);
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+        }
+
+        .group-124 {
+            width: 30px;
+            height: 30px;
+            position: static;
+        }
+
+        .search {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: -22px;
+            bottom: 8px;
+            transform-origin: 0 0;
+            transform: rotate(0deg) scale(-1, 1);
+            overflow: hidden;
+        }
+
+        .icon {
+            width: 75%;
+            height: 75%;
+            position: absolute;
+            right: 12.5%;
+            left: 12.5%;
+            bottom: 12.5%;
+            top: 12.5%;
+            overflow: visible;
+        }
+
+        .add {
+            width: 65%;
+            height: 65%;
+            position: absolute;
+            right: 5%;
+            left: 30%;
+            bottom: 30%;
+            top: 5%;
+            overflow: visible;
+        }
+
+        .sadrzaj-ispod-slike {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .cena-dugme-kupi {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .cena {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .mesecni-iznos {
+            color: var(--neutral-grey5, #333333);
+            text-align: left;
+            font-family: "A1Sans-Bold", sans-serif;
+            font-size: 24px;
+            line-height: 40px;
+            font-weight: 700;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .rate {
+            color: var(--neutral-grey5, #333333);
+            text-align: left;
+            font-family: "A1Sans-Bold", sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 700;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .dugme-kupi {
+            background: var(--color-button-primary, #eb140a);
+            border-radius: var(--corner-radius, 4px);
+            padding: 14px var(--space-s, 16px) 14px var(--space-s, 16px);
+            display: flex;
+            flex-direction: row;
+            gap: var(--space-xs, 8px);
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .button-text {
+            color: var(--color-on-button-primary, #ffffff);
+            text-align: center;
+            font-family: var(--responsive-link-font-family, "A1Sans-Regular", sans-serif);
+            font-size: var(--responsive-link-font-size, 16px);
+            line-height: var(--responsive-link-line-height, 20px);
+            font-weight: var(--responsive-link-font-weight, 400);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dugme-detaljnije {
+            border-radius: var(--corner-radius, 4px);
+            padding: 10px var(--space-s, 16px) 10px var(--space-s, 16px);
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 158px;
+            position: relative;
+        }
+
+        .button-text2 {
+            color: var(--color-link, #b90a05);
+            text-align: center;
+            font-family: var(--responsive-link-font-family, "A1Sans-Regular", sans-serif);
+            font-size: var(--responsive-link-font-size, 16px);
+            line-height: var(--responsive-link-line-height, 20px);
+            font-weight: var(--responsive-link-font-weight, 400);
+            text-decoration: underline;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 
     <style>
         .modal-overlay {
@@ -501,7 +734,38 @@
 <body>
 
 
-
+    <div class="kartica-o-proizvodu">
+        <div class="sadrzaj-kartice">
+            <div class="naziv-proizvoda rp2">LG OLED65B33LA</div>
+            <div class="slika" id="openModal" style="
+              background: url(Slika12345.png) center;
+              background-size: cover;
+              background-repeat: no-repeat;
+            ">
+                <div class="ellipse-9"></div>
+                <div class="group-124">
+                    <div class="search">
+                        <img class="icon" src="icon0.svg" />
+                        <img class="add" src="add0.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="sadrzaj-ispod-slike">
+                <div class="cena-dugme-kupi">
+                    <div class="cena">
+                        <div class="mesecni-iznos ">3.525 RSD/mes</div>
+                        <div class="rate">na 24 rate</div>
+                    </div>
+                    <div class="dugme-kupi">
+                        <div class="button-text rlink">Kupi</div>
+                    </div>
+                </div>
+                <div class="dugme-detaljnije">
+                    <div class="button-text2 rlink">Detaljnije o proizvodu</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <button id="openModal">Open Modal</button>
 
