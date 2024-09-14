@@ -487,12 +487,12 @@
 
 .modal-content {
   flex-grow: 1;
-  padding: 10px;
+  padding: 24px;
   overflow-y: auto;
   position: relative;
   z-index: 0; /* Content goes beneath the header and footer */
-  margin-top: -60px; /* Adjust this based on the header height if necessary */
-  margin-bottom: -60px; /* Adjust this based on the footer height if necessary */
+  margin-top: -80px; /* Adjust this based on the header height if necessary */
+  margin-bottom: -80px; /* Adjust this based on the footer height if necessary */
   padding-top: 20px; /*40px negative margin plus 10px padding*/
   padding-bottom: 20px;
 }
@@ -555,10 +555,9 @@ button {
 .statebutton {
   padding: 10px 20px;
   font-size: 16px;
-  font-family: Arial, sans-serif;
   border: none;
-  border-radius: 5px;
-  background-color: #ffffff; /* Primary color */
+  border-radius: 8px;
+  background-color: #ffffff00; /* Primary color */
   color: rgb(0, 0, 0);
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
@@ -567,20 +566,18 @@ button {
 
 /* Hover state */
 .statebutton:hover {
-  background-color: #d2d2d2; /* Darker shade for hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #e1e1e1; /* Darker shade for hover */
 }
 
 /* Active (pressed) state */
 .statebutton:active {
-  background-color: #adadad; /* Even darker shade for active */
- /* transform: translateY(2px);  Slight move to mimic press effect */
+  background-color: #c4c4c4; /* Even darker shade for active */
 }
 
 /* Focus state (by tab) */
 .statebutton:focus {
-  outline: 2px solid #bfbfbf39; /* Blue outline for accessibility */
-  outline-offset: 2px;
+ /* outline: 2px solid #bfbfbf39;  Blue outline for accessibility */
+/*  outline-offset: 2px;*/
 }
 
 /* Focus state (by mouse) */
