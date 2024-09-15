@@ -211,7 +211,8 @@
 
         .kartica-o-proizvodu {
             background: #ffffff;
-            max-width: 386px;
+            /* max-width: 386px; */
+            min-width: 236px;
             width: 100%;
             border-radius: 8px;
             padding: 32px;
@@ -235,6 +236,23 @@
             position: relative;
         }
 
+        @media (max-width: 1024px) {
+            .kartica-o-proizvodu {
+            min-width: 260px;}
+        }      
+        @media (max-width: 690px) {
+            .kartica-o-proizvodu {
+            padding: 16px;
+        } 
+         .sadrzaj-kartice {
+            gap: 16px;}
+        }
+      
+        @media (max-width: 375px) {
+            .kartica-o-proizvodu {
+            min-width: 236px;}
+        }
+
         .naziv-proizvoda {
             color: var(--neutral-grey5, #333333);
             text-align: left;
@@ -247,12 +265,19 @@
             height: 48px;
             min-height: 48px;
         }
+        .novi-red {
+            word-wrap: break-word;      /* Allows long words to be broken */
+            word-break: break-word;     /* Breaks long words if necessary */
+            white-space: normal;        /* Ensures normal line breaks for wrapping */
+        }
 
         .slika {
             align-self: stretch;
             flex-shrink: 0;
-            height: 340px;
             position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+
         }
 
         .dugme-lupa {
@@ -313,7 +338,7 @@
         .sadrzaj-ispod-slike {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
             align-items: center;
             justify-content: flex-start;
             align-self: stretch;
@@ -335,12 +360,12 @@
         .cena {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 0px;
             align-items: flex-start;
             justify-content: center;
             flex-shrink: 0;
             position: relative;
-            min-width: 154px;
+            /* min-width: 154px; */
             min-height: 48px;
             padding: 2px 0px 0px 0px;
         }
@@ -356,6 +381,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            font-size: clamp(17px, 2vw, 24px); /* Minimum size is 14px, scales with 2vw, max size is 18px */
         }
 
         .rate {
@@ -442,7 +468,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            opacity: 0.1;
+            opacity: 0;
             pointer-events: none;
             transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
             z-index: 100;
@@ -876,12 +902,78 @@
   /* padding-left: 14px; */
 }
 
+.wrapperkartica{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    justify-content: center;
+    margin: 0 auto; /* Center the grid */
+    padding: 24px; /* Add some padding around the container */
+    max-width: 1254px;
+}
+
+
+
     </style>
 </head>
 
 <body>
 
-
+<div class="wrapperkartica">
+    <div class="kartica-o-proizvodu">
+        <div class="sadrzaj-kartice">
+            <div class="naziv-proizvoda novi-red  rp2">LG OLEsfasdDasdgfdsg65B33LA</div>
+            <div class="slika aspect-ratio-box" id="openGaleryModal" style="
+              background: url(02.png) center;
+              background-size: contain;
+              background-repeat: no-repeat;
+            ">
+                <div class="ellipse-9 searchM statebutton"></div>
+               
+            </div>
+            <div class="sadrzaj-ispod-slike">
+                <div class="cena-dugme-kupi">
+                    <div class="cena">
+                        <div class="mesecni-iznos rh3 ">30.525 RSD/mes</div>
+                        <div class="rate rp2">na 24 rate</div>
+                    </div>
+                    <div class="dugme-kupi">
+                        <div class="button-text rlink">Kupi</div>
+                    </div>
+                </div>
+                <div class="dugme-detaljnije ">
+                    <div class="button-text2 rlink "id="openDetailsModal">Detaljnije o proizvodu</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kartica-o-proizvodu">
+        <div class="sadrzaj-kartice">
+            <div class="naziv-proizvoda rp2">LG OLEsfasdDasdgfdsg65B33LA</div>
+            <div class="slika" id="openGaleryModal" style="
+              background: url(04.png) center;
+              background-size: contain;
+              background-repeat: no-repeat;
+            ">
+                <div class="ellipse-9 searchM statebutton"></div>
+               
+            </div>
+            <div class="sadrzaj-ispod-slike">
+                <div class="cena-dugme-kupi">
+                    <div class="cena">
+                        <div class="mesecni-iznos rh3 ">30.525 RSD/mes</div>
+                        <div class="rate rp2">na 24 rate</div>
+                    </div>
+                    <div class="dugme-kupi">
+                        <div class="button-text rlink">Kupi</div>
+                    </div>
+                </div>
+                <div class="dugme-detaljnije ">
+                    <div class="button-text2 rlink "id="openDetailsModal">Detaljnije o proizvodu</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="kartica-o-proizvodu">
         <div class="sadrzaj-kartice">
             <div class="naziv-proizvoda rp2">LG OLEsfasdDasdgfdsg65B33LA</div>
@@ -909,6 +1001,8 @@
             </div>
         </div>
     </div>
+</div>
+ 
 
 
     <div class="modal-overlay" id="galeryModalOverlay">
